@@ -1,8 +1,8 @@
 # FDR High School - AP CS A
 
-## Last Name: 
-## First Name: 
-## GitHub Username:
+## Last Name:  Stoperkevych
+## First Name: Serhiy
+## GitHub Username:Serhiy21
 
 
 ### General Workflow: 
