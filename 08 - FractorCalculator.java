@@ -1,13 +1,13 @@
 import java.io.*;
    import java.util.Scanner;
   public class FractionCalculator{
-     public  class Fraction{
+     public  class Fraction{//entering keywords into the program
                   private int nomo;
                   private int deno;
                   Fraction(){nomo=0;deno=1;}
                   Fraction(int n,int d){nomo=n;deno=d;}
   
-     }
+     }//end of the entering keywords into the program
 
           private static Fraction f1;
           private static Fraction f2;
@@ -47,33 +47,33 @@ import java.io.*;
                 resul.nomo=(f1.nomo*f2.deno)+(f1.deno*f2.nomo);
                 resul.deno=f1.deno*f2.deno;
                 return resul;
- }
+ }//end of the fraction addition formulas
    public Fraction subtractFraction(Fraction f1,Fraction f2){
                  Fraction resul=new Fraction();
                  resul.nomo=(f1.nomo*f2.deno)-(f1.deno*f2.nomo);
                  resul.deno=f1.deno*f2.deno;
                  return resul;
- }
+ }//the end of the formula for subtracting fractions
   public Fraction multiplyFraction(Fraction f1,Fraction f2){
                  Fraction resul=new Fraction();
                  resul.nomo=f1.nomo*f2.nomo;
                  resul.deno=f1.deno*f2.deno;
                  return resul;
- }
+ }//the end of the fraction multiplication formula
   public Fraction divideFraction(Fraction f1,Fraction f2){
                  Fraction resul=new Fraction();
                  resul.nomo=f1.nomo*f2.deno;
                  resul.deno=f1.deno*f2.nomo;
                  return resul;
- }
- public static void printMenu(){
+ }//the end of the fraction division formula
+ public static void printMenu(){//menu of this program
                  System.out.println("FRACTIONS CALCULATOR");
                  System.out.println("-------------------------------");
                  System.out.println("1. Add fractions");
                  System.out.println("2. Subtract fractions");
                  System.out.println("3. Multiply fractions");
                   System.out.println("4. Divide fractions");
-     }
+     }//end menu
  public void getInput(){
                  String[] ftext=new String[2];
                  String[] sptext=new String[2];
@@ -100,4 +100,4 @@ import java.io.*;
  
                 }catch(IOException e){System.out.println("Error in reading user input...");}
     }
-  }
+  }//end class
