@@ -16,3 +16,7 @@ public class Main
 		System.out.println(floor);
 	}
 }
+//My plan for part 2
+//Take the basis of my first part to, using the individual parts. 
+//Which I will do based on the needs of the second part. 
+//Make a complete program. Which calculates the required number of floors.
