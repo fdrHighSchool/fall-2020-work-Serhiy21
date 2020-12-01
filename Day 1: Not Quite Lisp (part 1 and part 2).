@@ -1,3 +1,4 @@
+//Part 1
 public class Main
 {
 	public static void main(String[] args) {
@@ -16,7 +17,23 @@ public class Main
 		System.out.println(floor);
 	}
 }
-//My plan for part 2
-//Take the basis of my first part to, using the individual parts. 
-//Which I will do based on the needs of the second part. 
-//Make a complete program. Which calculates the required number of floors.
+//Part 2
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("direction: ");
+        String direction = in.nextLine();
+        int floor = 0;
+        for (int i = 0; i < direction.length(); i++) {
+            if (direction.charAt(i) == '(') {floor++;}
+            else {floor--;}
+            if (floor == -1) {
+                System.out.println(i + 1);
+                break;
+            }
+        }
+        in.close();
+    }
+}
