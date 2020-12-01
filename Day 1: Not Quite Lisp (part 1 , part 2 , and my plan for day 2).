@@ -37,3 +37,19 @@ public class Main {
         in.close();
     }
 }
+// My plan for day 2
+// Make the groundwork for my program.{
+// ...
+// }
+// Make an int for those variables that I come across {
+// ...
+// }
+// I will need to make part of the program by area {
+// ...
+// }
+// I have to do a similar thing with the other two areas {
+// ...
+// }
+// Add an additional function to make the area work {
+// ...
+// }
