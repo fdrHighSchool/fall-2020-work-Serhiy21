@@ -1,118 +1,98 @@
-import java.util.Arrays;
+package assignments;
 
-class Main {
-  public static void main(String[] args) {
-    // instantiate 2D array (for example, 30 students with 10 grades each)
-    int[][] classGrades = new int[30][10];
+import java.util.Scanner;
 
-    classGrades = fillArray(classGrades);
-
-    // use the deepToString() method to display the contents of a 2D-Array
-    displayArray(classGrades);
-    System.out.println(getValedictorian(classGrades));
-    System.out.println(getSalutatorian(classGrades));
-    //System.out.println(find24s(classGrades));
-
-  }//end main method
-
-  /*
-   * N: fillArray
-   * P: assign random scores to each cell of the 2D-Array
-   * I: the 2D-Array of scores
-   * R: the filled-up 2D-Array
-   * NOTE: edit the code to have a random value from 55 - 100 in each cell
-   */
-  public static int[][] fillArray(int[][] arr) {
-    // fill each cell with row + col
-    // what you will do is fill each row with a random int from 55 - 100
-    int min = 55, max = 100;
-    for (int row = 0; row < arr.length; row++) {
-      for (int col = 0; col < arr[row].length; col++) {
-        arr[row][col] = (int)(Math.random() * (max - min + 1) + min);
-      }// end col for loop
-    }// end row for loop
-
-    return arr;
-  }// end fillArray method
-
-  /*
-   * N: displayArray
-   * P: create a visual representation of the grades for each student in the class
-   * I: the 2D-Array of scores
-   * R: n/a
-   */
-  public static void displayArray(int[][] arr) {
-    for (int row = 0; row < 30; row++) {
-      System.out.println("Student " + (row + 1) + ": " + Arrays.toString(arr[row]) + " Average: " + getAverage(arr[row]));
-    } //end for loop
-
-  }// end displayArray method
-
-  /*
-   * N: getValedictorian
-   * P: determine the 1st rank student in the class
-   * I: the 2D-Array of scores
-   * R: the student with the highest average
-   */
-  public static int getValedictorian(int[][] arr) {
-    double[] averages = new double[30];
-    for (int row = 0; row < 30; row++) {
-      averages[row] = getAverage(arr[row]);
-    } //end for loop
-
-    return 0;
-  }// end getValedictorian method
-
-  /*
-   * N: getSalutatorian
-   * P: determine the 2nd rank student in the class
-   * I: the 2D-Array of scores
-   * R: the student with the second highest average
-   */
-  public static int getSalutatorian(int[][] arr) {
-    double[] averages = new double[30];
-    for (int row = 0; row < 30; row++) {
-      averages[row] = getAverage(arr[row]);
-    } //end for loop
-    
-    return 0;
-  }// end getSalutatorian method
-
-  /*
-   * N: getAverage
-   * P: determine the average of an array of ints
-   * I: the array of student test scores
-   * R: the average
-   */
-  public static double getAverage(int[] arr) {
-    int sum = 0;
-    for (int grades : arr) {
-      sum += grades;
-    }
-    return sum / (double)arr.length;
-  }// end getAverage method
-
-
-  /*
-   * N: find24s
-   * P: iterate through each cell of the 2D Array an determine how many 24s exist
-   * I: the 2D Array to inspect
-   * R: the count of how many 24s exist
-   * NOTE: 24 is just an arbitrary value, used as an example because it's Alfredo's favorite
-   */
-  public static int find24s(int[][] arr) {
-    int count = 0;
-
-    for (int row = 0; row < arr.length; row++) {
-      for (int col = 0; col < arr[row].length; col++) {
-        if (arr[row][col] == 24) {
-          System.out.println(row + " " + col);
-          count++;
-        }// end if statement
-      }// end col for loop
-    }// end row for loop
-
-    return count;
-  }// end find24s
-
-}// end class
+public class StudentGrades 
+{
+	public static void main(String[] args) 
+	{
+		//String array to hold first names
+		String firstName[] = new String[5];
+		//string array to hold last name
+		String lastName[] = new String[5];
+		//double array to hold average
+		double average[] = new double[5];
+		//double 2 dimensional array to hold grades
+		double[][] studentGrades = new double[5][3];
+		//variable to hold over seventy
+		int overSeventy = 0;
+		
+		//scanner object
+		Scanner in = new Scanner(System.in);
+		
+		//for loop to create array of first name and last name
+		for(int i = 0; i < 5; i++)
+		{
+			//prompt user
+			System.out.print("Enter the first name: ");
+			firstName[i] = in.nextLine();//user input
+			//prompt user
+			System.out.print("Enter the last name: ");
+			lastName[i] = in.nextLine();//user input
+		}//for
+		
+		//Display students names
+		//print underline
+		System.out.println("----------------------");
+		//for loop to display firstname and last name form arrays
+		for(int i = 0; i < 5; i++)
+		{
+			// print names
+			System.out.println(firstName[i] + " " + lastName[i]);
+		}//for
+		
+		System.out.println();// blank lines
+		
+		//store student grades
+		// first for loop to create rows
+		for(int row = 0; row < studentGrades.length; row++)
+		{
+			//second for loop to create columns
+			for(int column = 0; column < studentGrades[row].length; column++)
+			{
+				//prompt the user to enter grades
+				System.out.println("Enter grade for each course for " + firstName[row] +
+						" " + lastName[row]);
+				//Prompting to enter course grade
+				System.out.println("Course" + (column+1) + ": ");
+				studentGrades[row][column] = in.nextDouble();//user input	
+			}//end column for	
+		}//end row for
+		
+		
+		//Print Table
+		System.out.println("             Student Grades                   ");
+		System.out.println("       Class1     class 2      class3         ");
+		System.out.println("----------------------------------------------");
+		
+		//print student names and test scores
+		for(int row = 0; row < studentGrades.length; row++)
+		{
+			System.out.print(firstName[row] + " " + lastName[row] + "          ");
+			//for loop to print names and grades
+			for(int column = 0; column < studentGrades[row].length; column++)
+			{
+				System.out.print(studentGrades[row][column] +"      ");
+			}
+			System.out.println();	
+		}//end for
+		
+		//find the average
+		for(int i = 0; i < 5; i++)
+		{
+			average[i] = (studentGrades[i][0] + studentGrades[i][1] + 
+					studentGrades[i][2]) / 3;
+			//If average over 70, increase over seventy
+			if(average[i] > 70)
+				overSeventy += 1;
+		}//for
+		System.out.println();// Blank lines
+		
+		//If half of the students are over 70% print message
+		if(overSeventy > 2)
+			System.out.println("Tution is being incresed by 10% for the next semester");
+		//If half of the students are under 70% print message
+		else
+			System.out.println("Tution will not be increased");
+	}//class
+}//main
