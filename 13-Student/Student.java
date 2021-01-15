@@ -1,96 +1,78 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Student {
   // instance variables
   private String name;
   private String osis;
   private int[] grades;
-
-  //------------------------------------------------//
+  private int numGrades;
 
   // constructor
   public Student(String n, String o) {
     this.name = n;
     this.osis = o;
-    grades = new int[10];
-  }//end constructor method
-
-  //------------------------------------------------//
+    this.grades = new int[10];
+    this.numGrades = 0;
+  } //end Student()
 
   // other methods
+
   public String getName() {
-
-    return "";
-  }//end getName method
-
+    return this.name;
+  } //end getName()
 
   public String getOSIS() {
+    return this.osis;
+  } //end getOSIS()
 
-    return "";
-  }//end getOSIS method
-
+  public void displayGrades() {
+    System.out.println(Arrays.toString(this.grades));
+  } //end getGrades()
 
   public void setName(String name) {
     this.name = name;
+  } //end setName()
 
-  }//end setName method
+  public void fillArray() {
+    for (int i = 0; i < this.grades.length; i++) {
+      this.grades[i] = (int)(Math.random() * 46 + 55);
+    }// end for loop
+    this.numGrades = 10;
+  }// end fillArray method
 
-  /*
-   * N: addGrade
-   * P: take-in a single grade and add it to the student's gradebook.
-        should find the first non-zero index in the array and insert the grade
-        there. if there is no room for that value, replace the lowest grade in
-        array with it.
-   * I: grade (int)
-   * R: n/a
-   */
-  public void addGrade(int grade) {
-    int spaceIndex = 0;
-    int lowestNumber = this.grades[0];
-    boolean space = false;
-    int lowestIndex = 0;
+  public void addGrades(int grade) {
+    //if there's no room, then replace the lowest score
+    if (this.numGrades == 10) {
 
-    for(int count = 1; count <= this.grades.length; count++){
-      if(this.grades[(this.grades.length - count)] == 0){
-        space = true;
-        spaceIndex = this.grades.length - count;
-      }//end if statement
-    }//end for loop of count
-
-      if(space == true){
-        this.grades[spaceIndex] = grade;
-      }else{
-        for(int countLowest = 0; countLowest < this.grades.length; countLowest++){
-          //System.out.println(this.grades[countLowest] + " < " + lowestNumber);
-          if(this.grades[countLowest] < lowestNumber){
-            lowestNumber = this.grades[countLowest];
-            lowestIndex = countLowest;
-          }//end if statement
-        }//end countLowest for loop
-
-        this.grades[lowestIndex] = grade;
-      }//end else statement
-
-      System.out.println(Arrays.toString(this.grades));
-
-  }//end addGrade method
-
+    } //end if
+    this.grades[this.numGrades] = grade;
+    this.numGrades++;
+  } //end addGrades()
 
   public double calculateAverage() {
+    double sum = 0.0;
+    int count = 0;
 
-    return 0.0;
-  }//end calculateAverage() method
+    //VERSION 1 - loop through entire array always
+    /*
+    for (int i = 0; i < this.grades.length; i++) {
+      if (this.grades[i] != 0) {
+        sum += this.grades[i];
+        count++;
+      } //end if value if not 0
+    } //end for loop
+    */
 
-  /*
-   * Returns the String representation of a Student.
-   * Right now, we are choosing to display the student's name and OSIS.
-   * NOTE: This method overrides the default toString method that
-   *       displays the memory address.
-   */
+    //VERSION 2 - use numGrades to determine how many iterations through the
+    for (int i = 0; i < this.numGrades; i++) {
+      sum += this.grades[i];
+    } //end for loop
+
+    return sum / this.numGrades;
+  } //end calculateAverage()
+
   public String toString() {
-    return "Student: " + this.name + " OSIS: " + this.osis;
+    return "Student:" + this.name + " OSIS:" + this.osis;
+  } //end toString()
 
-  }//end toString method
-
-
-}//end class
+} //end class
