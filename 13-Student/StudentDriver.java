@@ -1,25 +1,32 @@
-import java.util.Arrays;
+import java.util.*;
+
 public class StudentDriver {
   public static void main(String[] args) {
-    Student student1 = new Student("Hans", "123456789");
+    Student student1 = new Student("Ma", "239970163");
+    Student student2 = new Student("Hello", "1266874531");
+    System.out.println(student1);
+    System.out.println(student2);
+
+    student1.setName("Jinglun");
     System.out.println(student1);
 
-    student1.setName("Jian");
-    System.out.println(student1);
-    student1.addGrade(52);
-    student1.addGrade(59);
-    student1.addGrade(46);
-    student1.addGrade(40);
-    student1.addGrade(90);
-    student1.addGrade(96);
-    student1.addGrade(72);
-    student1.addGrade(89);
-    student1.addGrade(80);
-    student1.addGrade(79);
-    student1.addGrade(105);
-    student1.addGrade(91);
-    student1.addGrade(102);
+    System.out.println(student1.getName());
+    System.out.println(student1.getOSIS());
 
-  }//end main method
+    student1.addGrades(100);
+    student1.displayGrades();
+    student1.addGrades(90);
+    student1.displayGrades();
 
-}//end class
+    student2.addGrades(95);
+    student2.displayGrades();
+
+    Student student3 = new Student("Siri", "987654321");
+    student3.fillArray();
+    student3.displayGrades();
+    System.out.println(student1.calculateAverage());
+    System.out.println(student2.calculateAverage());
+    System.out.println(student3.calculateAverage());
+  } //end main
+
+} //end class
